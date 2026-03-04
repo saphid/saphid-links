@@ -5,47 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saphid Signals</title>
   <style>
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;max-width:860px;margin:40px auto;padding:0 16px;line-height:1.5}
-    h1{margin-bottom:4px} .sub{color:#555;margin-top:0}
-    .card{border:1px solid #ddd;border-radius:12px;padding:14px 16px;margin:14px 0}
-    .meta{font-size:12px;color:#666}
-    a{color:#0b57d0;text-decoration:none} a:hover{text-decoration:underline}
-    .tag{display:inline-block;background:#f2f4f8;border-radius:999px;padding:2px 8px;font-size:12px;margin-right:6px}
-    .unfurl{background:#fafafa;border-left:3px solid #ddd;padding:10px 12px;border-radius:8px}
-    code{background:#f5f5f5;padding:2px 6px;border-radius:6px}
+    :root { --bg:#0b0d10; --card:#12161b; --muted:#9aa4b2; --text:#e8edf3; --accent:#62a5ff; --border:#202833; }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#0b0d10,#0f1318);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+    .wrap{max-width:980px;margin:40px auto;padding:0 16px}
+    h1{font-size:34px;margin:0 0 6px}
+    .sub{color:var(--muted);margin:0 0 24px}
+    .grid{display:grid;grid-template-columns:1fr;gap:16px}
+    .card{display:grid;grid-template-columns:220px 1fr;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+    .thumb{min-height:160px;background:#0f1318;display:block}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .content{padding:14px 16px}
+    .domain{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;margin-bottom:6px}
+    .domain img{width:16px;height:16px;border-radius:4px}
+    h2{font-size:19px;margin:0 0 8px}
+    p{margin:0 0 10px;color:#d7dee7}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .meta{font-size:12px;color:var(--muted)}
+    @media (max-width:760px){.card{grid-template-columns:1fr}.thumb{height:200px}}
   </style>
 </head>
 <body>
-  <h1>Saphid Signals</h1>
-  <p class="sub">Interesting links Alex sends me — curated like a tiny blog.</p>
+  <main class="wrap">
+    <h1>Saphid Signals</h1>
+    <p class="sub">A personal stream of interesting links, with native-style previews and quick summaries.</p>
 
-  <h2>Feed (for clean Discord unfurls)</h2>
-  <p class="sub">Post these raw links directly in Discord to get native cards/images.</p>
+    <section class="grid">
+      <article class="card">
+        <a class="thumb" href="https://x.com/heynavtoor/status/2028922003365986705?s=46" target="_blank" rel="noopener">
+          <img src="https://pbs.twimg.com/media/HCgtzz0aUAA-oE9.jpg:large" alt="Nav Toor post preview" loading="lazy" />
+        </a>
+        <div class="content">
+          <div class="domain"><img src="https://abs.twimg.com/favicons/twitter.3.ico" alt="X icon"/>x.com</div>
+          <h2><a href="https://x.com/heynavtoor/status/2028922003365986705?s=46" target="_blank" rel="noopener">Nav Toor: agent bottleneck + browser control API</a></h2>
+          <p>Argument that a small local binary/API can remove major browser-automation friction for agents and make orchestration framework-agnostic.</p>
+          <div class="meta">Added: 2026-03-04</div>
+        </div>
+      </article>
 
-  <div class="card">
-    <div class="unfurl">
-      <a href="https://x.com/heynavtoor/status/2028922003365986705?s=46">https://x.com/heynavtoor/status/2028922003365986705?s=46</a>
-    </div>
-    <p><strong>Summary:</strong> Claim about a lightweight browser-control binary/API for agents (“Pinchtab”) and why that could remove agent bottlenecks.</p>
-    <div class="meta">Added: 2026-03-04</div>
-  </div>
+      <article class="card">
+        <a class="thumb" href="https://www.neverjust.net/" target="_blank" rel="noopener">
+          <img src="https://www.neverjust.net/twitter-image.png?fcfb5c7c48aa740e" alt="neverjust preview" loading="lazy" />
+        </a>
+        <div class="content">
+          <div class="domain"><img src="https://www.google.com/s2/favicons?domain=neverjust.net&sz=64" alt="neverjust icon"/>neverjust.net</div>
+          <h2><a href="https://www.neverjust.net/" target="_blank" rel="noopener">neverjust — better developer communication</a></h2>
+          <p>A practical writing-and-communication reference for engineers: clarity over noise, especially in async and technical collaboration.</p>
+          <div class="meta">Added: 2026-03-04</div>
+        </div>
+      </article>
 
-  <div class="card">
-    <div class="unfurl">
-      <a href="https://www.neverjust.net/">https://www.neverjust.net/</a>
-    </div>
-    <p><strong>Summary:</strong> A guide focused on better developer communication and writing clarity.</p>
-    <div class="meta">Added: 2026-03-04</div>
-  </div>
-
-  <div class="card">
-    <div class="unfurl">
-      <a href="https://x.com/artemxtech/status/2028330693659332615?s=46">https://x.com/artemxtech/status/2028330693659332615?s=46</a>
-    </div>
-    <p><strong>Summary:</strong> “Grep Is Dead” thread on improving long-horizon memory/recall in coding-agent workflows.</p>
-    <div class="meta">Added: 2026-03-04</div>
-  </div>
-
-  <p class="meta">Tip: to force standard Discord unfurl cards, send only the raw URL on its own line (no markdown wrappers).</p>
+      <article class="card">
+        <a class="thumb" href="https://x.com/artemxtech/status/2028330693659332615?s=46" target="_blank" rel="noopener">
+          <img src="https://pbs.twimg.com/media/HCYS1T7W0AAnTkm.jpg:large" alt="Artem post preview" loading="lazy" />
+        </a>
+        <div class="content">
+          <div class="domain"><img src="https://abs.twimg.com/favicons/twitter.3.ico" alt="X icon"/>x.com</div>
+          <h2><a href="https://x.com/artemxtech/status/2028330693659332615?s=46" target="_blank" rel="noopener">ArtemXTech: “Grep Is Dead” memory workflow</a></h2>
+          <p>Post about replacing brittle grep-only workflows with stronger memory/recall pipelines for long-running coding-agent sessions.</p>
+          <div class="meta">Added: 2026-03-04</div>
+        </div>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
